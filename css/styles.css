@@ -39,7 +39,7 @@ body {
 }
 .hero-content {
   background: var(--color-bg-glass);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(1px);
   border-radius: 15px;
   padding: 2.5rem 3rem;
   max-width: 720px;
@@ -76,9 +76,8 @@ body {
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  box-shadow: 0 0 15px var(--color-accent);
   padding: 1rem 3rem;
-  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary-light));
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary-dark));
 }
 .btn-primary:hover, .btn-primary:focus,
 .btn-secondary:hover, .btn-secondary:focus,
