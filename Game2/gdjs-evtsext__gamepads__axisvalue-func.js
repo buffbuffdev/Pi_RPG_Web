@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__Gamepads__AxisValue !== "undefined") {
 gdjs.evtsExt__Gamepads__AxisValue = {};
 
 
-gdjs.evtsExt__Gamepads__AxisValue.userFunc0x1057390 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__Gamepads__AxisValue.userFunc0xc11e70 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 /** @type {Gamepad[]} */
 const gamepads = navigator.getGamepads ? navigator.getGamepads() : (navigator.webkitGetGamepads ? navigator.webkitGetGamepads() : []);
@@ -125,7 +125,7 @@ gdjs.evtsExt__Gamepads__AxisValue.eventsList0 = function(runtimeScene, eventsFun
 {
 
 
-gdjs.evtsExt__Gamepads__AxisValue.userFunc0x1057390(runtimeScene, eventsFunctionContext);
+gdjs.evtsExt__Gamepads__AxisValue.userFunc0xc11e70(runtimeScene, eventsFunctionContext);
 
 }
 
