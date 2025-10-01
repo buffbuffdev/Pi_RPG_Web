@@ -19,11 +19,14 @@ isConditionTrue_0 = gdjs.evtTools.runtimeScene.sceneJustBegins(runtimeScene);
 if (isConditionTrue_0) {
 gdjs.copyArray(runtimeScene.getObjects("LoadingScreen"), gdjs.LoadingScreenCode.GDLoadingScreenObjects1);
 {gdjs.evtTools.runtimeScene.prioritizeLoadingOfScene(runtimeScene, "Overworld");
-}{gdjs.evtTools.sound.preloadSound(runtimeScene, "Ambiance forêt_test2.mp3");
-}{for(var i = 0, len = gdjs.LoadingScreenCode.GDLoadingScreenObjects1.length ;i < len;++i) {
+}
+{gdjs.evtTools.sound.preloadSound(runtimeScene, "Ambiance forêt_test2.mp3");
+}
+{for(var i = 0, len = gdjs.LoadingScreenCode.GDLoadingScreenObjects1.length ;i < len;++i) {
     gdjs.LoadingScreenCode.GDLoadingScreenObjects1[i].resetTimer("Loading");
 }
-}}
+}
+}
 
 }
 
@@ -44,7 +47,8 @@ for (var i = 0, k = 0, l = gdjs.LoadingScreenCode.GDLoadingScreenObjects1.length
 gdjs.LoadingScreenCode.GDLoadingScreenObjects1.length = k;
 if (isConditionTrue_0) {
 {gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Overworld", false);
-}}
+}
+}
 
 }
 

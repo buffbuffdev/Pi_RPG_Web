@@ -26,7 +26,8 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.input.getTouchX(runtimeScene, gdjs.evtTools.input.getStartedTouchOrMouseIdentifier(runtimeScene, 0), (( gdjs.evtsExt__SpriteMultitouchJoystick__HasTouchStartedOnScreenSide.GDObjectObjects2.length === 0 ) ? "" :gdjs.evtsExt__SpriteMultitouchJoystick__HasTouchStartedOnScreenSide.GDObjectObjects2[0].getLayer()), 0) < gdjs.evtTools.camera.getCameraX(runtimeScene, (( gdjs.evtsExt__SpriteMultitouchJoystick__HasTouchStartedOnScreenSide.GDObjectObjects2.length === 0 ) ? "" :gdjs.evtsExt__SpriteMultitouchJoystick__HasTouchStartedOnScreenSide.GDObjectObjects2[0].getLayer()), 0);
 }
 if (isConditionTrue_0) {
-{eventsFunctionContext.returnValue = true;}}
+{eventsFunctionContext.returnValue = true;}
+}
 
 }
 
@@ -44,7 +45,8 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.input.getTouchX(runtimeScene, gdjs.evtTools.input.getStartedTouchOrMouseIdentifier(runtimeScene, 0), (( gdjs.evtsExt__SpriteMultitouchJoystick__HasTouchStartedOnScreenSide.GDObjectObjects1.length === 0 ) ? "" :gdjs.evtsExt__SpriteMultitouchJoystick__HasTouchStartedOnScreenSide.GDObjectObjects1[0].getLayer()), 0) >= gdjs.evtTools.camera.getCameraX(runtimeScene, (( gdjs.evtsExt__SpriteMultitouchJoystick__HasTouchStartedOnScreenSide.GDObjectObjects1.length === 0 ) ? "" :gdjs.evtsExt__SpriteMultitouchJoystick__HasTouchStartedOnScreenSide.GDObjectObjects1[0].getLayer()), 0);
 }
 if (isConditionTrue_0) {
-{eventsFunctionContext.returnValue = true;}}
+{eventsFunctionContext.returnValue = true;}
+}
 
 }
 
@@ -69,6 +71,7 @@ gdjs.evtsExt__SpriteMultitouchJoystick__HasTouchStartedOnScreenSide.eventsList0(
 };
 
 gdjs.evtsExt__SpriteMultitouchJoystick__HasTouchStartedOnScreenSide.func = function(runtimeScene, Object, Side, parentEventsFunctionContext) {
+let scopeInstanceContainer = null;
 var eventsFunctionContext = {
   _objectsMap: {
 "Object": Object
@@ -93,14 +96,15 @@ var eventsFunctionContext = {
   createObject: function(objectName) {
     const objectsList = eventsFunctionContext._objectsMap[objectName];
     if (objectsList) {
-      const object = parentEventsFunctionContext ?
+      const object = parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
         parentEventsFunctionContext.createObject(objectsList.firstKey()) :
         runtimeScene.createObject(objectsList.firstKey());
       if (object) {
         objectsList.get(objectsList.firstKey()).push(object);
         eventsFunctionContext._objectArraysMap[objectName].push(object);
       }
-      return object;    }
+      return object;
+    }
     return null;
   },
   getInstancesCountOnScene: function(objectName) {
@@ -108,7 +112,7 @@ var eventsFunctionContext = {
     let count = 0;
     if (objectsList) {
       for(const objectName in objectsList.items)
-        count += parentEventsFunctionContext ?
+        count += parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
 parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
         runtimeScene.getInstancesCountOnScene(objectName);
     }

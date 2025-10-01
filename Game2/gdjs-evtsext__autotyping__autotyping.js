@@ -145,10 +145,12 @@ let isConditionTrue_0 = false;
 {
 gdjs.copyArray(eventsFunctionContext.getObjects("Object"), gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onCreatedContext.GDObjectObjects1);
 {eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._setFullText((( gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onCreatedContext.GDObjectObjects1.length === 0 ) ? "" :gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onCreatedContext.GDObjectObjects1[0].getBehavior(eventsFunctionContext.getBehaviorName("Text")).getText()))
-}{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onCreatedContext.GDObjectObjects1.length ;i < len;++i) {
+}
+{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onCreatedContext.GDObjectObjects1.length ;i < len;++i) {
     gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onCreatedContext.GDObjectObjects1[i].getBehavior(eventsFunctionContext.getBehaviorName("Behavior")).RestartFromBeginning(eventsFunctionContext);
 }
-}}
+}
+}
 
 }
 
@@ -159,6 +161,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onCreated = function(p
 
 var that = this;
 var runtimeScene = this._runtimeScene;
+let scopeInstanceContainer = null;
 var thisObjectList = [this.owner];
 var Object = Hashtable.newFrom({Object: thisObjectList});
 var Behavior = this.name;
@@ -188,14 +191,15 @@ var eventsFunctionContext = {
   createObject: function(objectName) {
     const objectsList = eventsFunctionContext._objectsMap[objectName];
     if (objectsList) {
-      const object = parentEventsFunctionContext ?
+      const object = parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
         parentEventsFunctionContext.createObject(objectsList.firstKey()) :
         runtimeScene.createObject(objectsList.firstKey());
       if (object) {
         objectsList.get(objectsList.firstKey()).push(object);
         eventsFunctionContext._objectArraysMap[objectName].push(object);
       }
-      return object;    }
+      return object;
+    }
     return null;
   },
   getInstancesCountOnScene: function(objectName) {
@@ -203,7 +207,7 @@ var eventsFunctionContext = {
     let count = 0;
     if (objectsList) {
       for(const objectName in objectsList.items)
-        count += parentEventsFunctionContext ?
+        count += parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
 parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
         runtimeScene.getInstancesCountOnScene(objectName);
     }
@@ -253,7 +257,8 @@ for (var i = 0, k = 0, l = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.proto
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects3.length = k;
 if (isConditionTrue_0) {
 {eventsFunctionContext.localVariables[0].getFromIndex(0).setString(gdjs.evtTools.string.newLine());
-}}
+}
+}
 
 }
 
@@ -274,6 +279,7 @@ gdjs.copyArray(gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepP
     gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects3[i].getBehavior(eventsFunctionContext.getBehaviorName("Behavior")).ClearForcedLineBreak(eventsFunctionContext);
 }
 }
+
 { //Subevents
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.eventsList0(runtimeScene, eventsFunctionContext);} //End of subevents
 }
@@ -289,10 +295,12 @@ let isConditionTrue_0 = false;
 gdjs.copyArray(gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects1, gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects2);
 
 {eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._setTypedText(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getTypedText()+eventsFunctionContext.localVariables[0].getFromIndex(0).getAsString())
-}{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects2.length ;i < len;++i) {
+}
+{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects2.length ;i < len;++i) {
     gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects2[i].getBehavior(eventsFunctionContext.getBehaviorName("Text")).setText(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getTypedText());
 }
-}}
+}
+}
 
 }
 
@@ -315,6 +323,7 @@ let isConditionTrue_0 = false;
 {
 {eventsFunctionContext.localVariables[0].getFromIndex(0).setString(gdjs.evtTools.string.strAt(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getFullText(), gdjs.evtTools.string.strLen(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getTypedText())));
 }
+
 { //Subevents
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.eventsList1(runtimeScene, eventsFunctionContext);} //End of subevents
 }
@@ -340,11 +349,14 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContex
 if (isConditionTrue_0) {
 /* Reuse gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects1 */
 {gdjs.evtTools.runtimeScene.removeTimer(runtimeScene, "__AutoTyping.WriteTimer");
-}{eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._setTypedText(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getFullText())
-}{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects1.length ;i < len;++i) {
+}
+{eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._setTypedText(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getFullText())
+}
+{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects1.length ;i < len;++i) {
     gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects1[i].getBehavior(eventsFunctionContext.getBehaviorName("Text")).setText(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getTypedText());
 }
-}}
+}
+}
 
 }
 
@@ -368,10 +380,12 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContex
 if (isConditionTrue_0) {
 /* Reuse gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects1 */
 {eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._setFullText((( gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects1.length === 0 ) ? "" :gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects1[0].getBehavior(eventsFunctionContext.getBehaviorName("Text")).getText()))
-}{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects1.length ;i < len;++i) {
+}
+{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects1.length ;i < len;++i) {
     gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects1[i].getBehavior(eventsFunctionContext.getBehaviorName("Behavior")).RestartFromBeginning(eventsFunctionContext);
 }
-}}
+}
+}
 
 }
 
@@ -382,7 +396,8 @@ if (isConditionTrue_0) {
 let isConditionTrue_0 = false;
 {
 {eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._setCharacterJustAdded(false)
-}}
+}
+}
 
 }
 
@@ -404,10 +419,12 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContex
 if (isConditionTrue_0) {
 /* Reuse gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects1 */
 {eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._setCharacterJustAdded(true)
-}{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects1.length ;i < len;++i) {
+}
+{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects1.length ;i < len;++i) {
     gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects1[i].resetTimer("__AutoTyping.WriteTimer");
 }
 }
+
 { //Subevents
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.eventsList2(runtimeScene, eventsFunctionContext);} //End of subevents
 }
@@ -421,6 +438,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEvents = fun
 
 var that = this;
 var runtimeScene = this._runtimeScene;
+let scopeInstanceContainer = null;
 var thisObjectList = [this.owner];
 var Object = Hashtable.newFrom({Object: thisObjectList});
 var Behavior = this.name;
@@ -450,14 +468,15 @@ var eventsFunctionContext = {
   createObject: function(objectName) {
     const objectsList = eventsFunctionContext._objectsMap[objectName];
     if (objectsList) {
-      const object = parentEventsFunctionContext ?
+      const object = parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
         parentEventsFunctionContext.createObject(objectsList.firstKey()) :
         runtimeScene.createObject(objectsList.firstKey());
       if (object) {
         objectsList.get(objectsList.firstKey()).push(object);
         eventsFunctionContext._objectArraysMap[objectName].push(object);
       }
-      return object;    }
+      return object;
+    }
     return null;
   },
   getInstancesCountOnScene: function(objectName) {
@@ -465,7 +484,7 @@ var eventsFunctionContext = {
     let count = 0;
     if (objectsList) {
       for(const objectName in objectsList.items)
-        count += parentEventsFunctionContext ?
+        count += parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
 parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
         runtimeScene.getInstancesCountOnScene(objectName);
     }
@@ -512,7 +531,8 @@ isConditionTrue_0 = false;
 {isConditionTrue_0 = (eventsFunctionContext.localVariables[0].getFromIndex(0).getAsNumber() < (( gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedContext.GDObjectObjects2.length === 0 ) ? 0 :gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedContext.GDObjectObjects2[0].getHeight()));
 }
 if (isConditionTrue_0) {
-{eventsFunctionContext.returnValue = true;}}
+{eventsFunctionContext.returnValue = true;}
+}
 
 }
 
@@ -526,7 +546,8 @@ let isConditionTrue_0 = false;
 {for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedContext.GDObjectObjects1.length ;i < len;++i) {
     gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedContext.GDObjectObjects1[i].getBehavior(eventsFunctionContext.getBehaviorName("Text")).setText(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getTypedText());
 }
-}}
+}
+}
 
 }
 
@@ -556,10 +577,12 @@ let isConditionTrue_0 = false;
 {
 gdjs.copyArray(eventsFunctionContext.getObjects("Object"), gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedContext.GDObjectObjects1);
 {eventsFunctionContext.localVariables[0].getFromIndex(0).setNumber((( gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedContext.GDObjectObjects1.length === 0 ) ? 0 :gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedContext.GDObjectObjects1[0].getHeight()));
-}{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedContext.GDObjectObjects1.length ;i < len;++i) {
+}
+{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedContext.GDObjectObjects1.length ;i < len;++i) {
     gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedContext.GDObjectObjects1[i].getBehavior(eventsFunctionContext.getBehaviorName("Text")).setText(gdjs.evtTools.string.subStr(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getFullText(), 0, gdjs.evtTools.string.strFindFrom(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getFullText(), " ", gdjs.evtTools.string.strLen(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getTypedText()) + 1)));
 }
 }
+
 { //Subevents
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedContext.eventsList0(runtimeScene, eventsFunctionContext);} //End of subevents
 }
@@ -574,6 +597,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrapped = fu
 
 var that = this;
 var runtimeScene = this._runtimeScene;
+let scopeInstanceContainer = null;
 var thisObjectList = [this.owner];
 var Object = Hashtable.newFrom({Object: thisObjectList});
 var Behavior = this.name;
@@ -603,14 +627,15 @@ var eventsFunctionContext = {
   createObject: function(objectName) {
     const objectsList = eventsFunctionContext._objectsMap[objectName];
     if (objectsList) {
-      const object = parentEventsFunctionContext ?
+      const object = parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
         parentEventsFunctionContext.createObject(objectsList.firstKey()) :
         runtimeScene.createObject(objectsList.firstKey());
       if (object) {
         objectsList.get(objectsList.firstKey()).push(object);
         eventsFunctionContext._objectArraysMap[objectName].push(object);
       }
-      return object;    }
+      return object;
+    }
     return null;
   },
   getInstancesCountOnScene: function(objectName) {
@@ -618,7 +643,7 @@ var eventsFunctionContext = {
     let count = 0;
     if (objectsList) {
       for(const objectName in objectsList.items)
-        count += parentEventsFunctionContext ?
+        count += parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
 parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
         runtimeScene.getInstancesCountOnScene(objectName);
     }
@@ -658,7 +683,8 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ClearForcedLineBreakCo
 let isConditionTrue_0 = false;
 {
 {eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._setTypedText(gdjs.evtTools.string.subStr(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getFullText(), 0, gdjs.evtTools.string.strLen(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getTypedText())))
-}}
+}
+}
 
 }
 
@@ -669,6 +695,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ClearForcedLineBreak =
 
 var that = this;
 var runtimeScene = this._runtimeScene;
+let scopeInstanceContainer = null;
 var thisObjectList = [this.owner];
 var Object = Hashtable.newFrom({Object: thisObjectList});
 var Behavior = this.name;
@@ -698,14 +725,15 @@ var eventsFunctionContext = {
   createObject: function(objectName) {
     const objectsList = eventsFunctionContext._objectsMap[objectName];
     if (objectsList) {
-      const object = parentEventsFunctionContext ?
+      const object = parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
         parentEventsFunctionContext.createObject(objectsList.firstKey()) :
         runtimeScene.createObject(objectsList.firstKey());
       if (object) {
         objectsList.get(objectsList.firstKey()).push(object);
         eventsFunctionContext._objectArraysMap[objectName].push(object);
       }
-      return object;    }
+      return object;
+    }
     return null;
   },
   getInstancesCountOnScene: function(objectName) {
@@ -713,7 +741,7 @@ var eventsFunctionContext = {
     let count = 0;
     if (objectsList) {
       for(const objectName in objectsList.items)
-        count += parentEventsFunctionContext ?
+        count += parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
 parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
         runtimeScene.getInstancesCountOnScene(objectName);
     }
@@ -754,7 +782,8 @@ gdjs.copyArray(eventsFunctionContext.getObjects("Object"), gdjs.evtsExt__AutoTyp
 {for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onDeActivateContext.GDObjectObjects1.length ;i < len;++i) {
     gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onDeActivateContext.GDObjectObjects1[i].pauseTimer("__AutoTyping.WriteTimer");
 }
-}}
+}
+}
 
 }
 
@@ -765,6 +794,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onDeActivate = functio
 
 var that = this;
 var runtimeScene = this._runtimeScene;
+let scopeInstanceContainer = null;
 var thisObjectList = [this.owner];
 var Object = Hashtable.newFrom({Object: thisObjectList});
 var Behavior = this.name;
@@ -794,14 +824,15 @@ var eventsFunctionContext = {
   createObject: function(objectName) {
     const objectsList = eventsFunctionContext._objectsMap[objectName];
     if (objectsList) {
-      const object = parentEventsFunctionContext ?
+      const object = parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
         parentEventsFunctionContext.createObject(objectsList.firstKey()) :
         runtimeScene.createObject(objectsList.firstKey());
       if (object) {
         objectsList.get(objectsList.firstKey()).push(object);
         eventsFunctionContext._objectArraysMap[objectName].push(object);
       }
-      return object;    }
+      return object;
+    }
     return null;
   },
   getInstancesCountOnScene: function(objectName) {
@@ -809,7 +840,7 @@ var eventsFunctionContext = {
     let count = 0;
     if (objectsList) {
       for(const objectName in objectsList.items)
-        count += parentEventsFunctionContext ?
+        count += parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
 parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
         runtimeScene.getInstancesCountOnScene(objectName);
     }
@@ -850,7 +881,8 @@ gdjs.copyArray(eventsFunctionContext.getObjects("Object"), gdjs.evtsExt__AutoTyp
 {for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onActivateContext.GDObjectObjects1.length ;i < len;++i) {
     gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onActivateContext.GDObjectObjects1[i].unpauseTimer("__AutoTyping.WriteTimer");
 }
-}}
+}
+}
 
 }
 
@@ -861,6 +893,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onActivate = function(
 
 var that = this;
 var runtimeScene = this._runtimeScene;
+let scopeInstanceContainer = null;
 var thisObjectList = [this.owner];
 var Object = Hashtable.newFrom({Object: thisObjectList});
 var Behavior = this.name;
@@ -890,14 +923,15 @@ var eventsFunctionContext = {
   createObject: function(objectName) {
     const objectsList = eventsFunctionContext._objectsMap[objectName];
     if (objectsList) {
-      const object = parentEventsFunctionContext ?
+      const object = parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
         parentEventsFunctionContext.createObject(objectsList.firstKey()) :
         runtimeScene.createObject(objectsList.firstKey());
       if (object) {
         objectsList.get(objectsList.firstKey()).push(object);
         eventsFunctionContext._objectArraysMap[objectName].push(object);
       }
-      return object;    }
+      return object;
+    }
     return null;
   },
   getInstancesCountOnScene: function(objectName) {
@@ -905,7 +939,7 @@ var eventsFunctionContext = {
     let count = 0;
     if (objectsList) {
       for(const objectName in objectsList.items)
-        count += parentEventsFunctionContext ?
+        count += parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
 parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
         runtimeScene.getInstancesCountOnScene(objectName);
     }
@@ -945,7 +979,8 @@ isConditionTrue_0 = false;
 {isConditionTrue_0 = (gdjs.evtTools.string.strLen(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getTypedText()) == gdjs.evtTools.string.strLen(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getFullText()));
 }
 if (isConditionTrue_0) {
-{eventsFunctionContext.returnValue = true;}}
+{eventsFunctionContext.returnValue = true;}
+}
 
 }
 
@@ -956,6 +991,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsFinished = function(
 
 var that = this;
 var runtimeScene = this._runtimeScene;
+let scopeInstanceContainer = null;
 var thisObjectList = [this.owner];
 var Object = Hashtable.newFrom({Object: thisObjectList});
 var Behavior = this.name;
@@ -985,14 +1021,15 @@ var eventsFunctionContext = {
   createObject: function(objectName) {
     const objectsList = eventsFunctionContext._objectsMap[objectName];
     if (objectsList) {
-      const object = parentEventsFunctionContext ?
+      const object = parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
         parentEventsFunctionContext.createObject(objectsList.firstKey()) :
         runtimeScene.createObject(objectsList.firstKey());
       if (object) {
         objectsList.get(objectsList.firstKey()).push(object);
         eventsFunctionContext._objectArraysMap[objectName].push(object);
       }
-      return object;    }
+      return object;
+    }
     return null;
   },
   getInstancesCountOnScene: function(objectName) {
@@ -1000,7 +1037,7 @@ var eventsFunctionContext = {
     let count = 0;
     if (objectsList) {
       for(const objectName in objectsList.items)
-        count += parentEventsFunctionContext ?
+        count += parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
 parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
         runtimeScene.getInstancesCountOnScene(objectName);
     }
@@ -1040,7 +1077,8 @@ isConditionTrue_0 = false;
 {isConditionTrue_0 = eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getCharacterJustAdded();
 }
 if (isConditionTrue_0) {
-{eventsFunctionContext.returnValue = true;}}
+{eventsFunctionContext.returnValue = true;}
+}
 
 }
 
@@ -1051,6 +1089,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.HasJustTyped = functio
 
 var that = this;
 var runtimeScene = this._runtimeScene;
+let scopeInstanceContainer = null;
 var thisObjectList = [this.owner];
 var Object = Hashtable.newFrom({Object: thisObjectList});
 var Behavior = this.name;
@@ -1080,14 +1119,15 @@ var eventsFunctionContext = {
   createObject: function(objectName) {
     const objectsList = eventsFunctionContext._objectsMap[objectName];
     if (objectsList) {
-      const object = parentEventsFunctionContext ?
+      const object = parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
         parentEventsFunctionContext.createObject(objectsList.firstKey()) :
         runtimeScene.createObject(objectsList.firstKey());
       if (object) {
         objectsList.get(objectsList.firstKey()).push(object);
         eventsFunctionContext._objectArraysMap[objectName].push(object);
       }
-      return object;    }
+      return object;
+    }
     return null;
   },
   getInstancesCountOnScene: function(objectName) {
@@ -1095,7 +1135,7 @@ var eventsFunctionContext = {
     let count = 0;
     if (objectsList) {
       for(const objectName in objectsList.items)
-        count += parentEventsFunctionContext ?
+        count += parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
 parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
         runtimeScene.getInstancesCountOnScene(objectName);
     }
@@ -1134,13 +1174,16 @@ let isConditionTrue_0 = false;
 {
 gdjs.copyArray(eventsFunctionContext.getObjects("Object"), gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.RestartFromBeginningContext.GDObjectObjects1);
 {eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._setTypedText("")
-}{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.RestartFromBeginningContext.GDObjectObjects1.length ;i < len;++i) {
+}
+{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.RestartFromBeginningContext.GDObjectObjects1.length ;i < len;++i) {
     gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.RestartFromBeginningContext.GDObjectObjects1[i].getBehavior(eventsFunctionContext.getBehaviorName("Text")).setText("");
 }
-}{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.RestartFromBeginningContext.GDObjectObjects1.length ;i < len;++i) {
+}
+{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.RestartFromBeginningContext.GDObjectObjects1.length ;i < len;++i) {
     gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.RestartFromBeginningContext.GDObjectObjects1[i].resetTimer("__AutoTyping.WriteTimer");
 }
-}}
+}
+}
 
 }
 
@@ -1164,7 +1207,8 @@ if (isConditionTrue_0) {
 {for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.RestartFromBeginningContext.GDObjectObjects1.length ;i < len;++i) {
     gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.RestartFromBeginningContext.GDObjectObjects1[i].pauseTimer("__AutoTyping.WriteTimer");
 }
-}}
+}
+}
 
 }
 
@@ -1175,6 +1219,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.RestartFromBeginning =
 
 var that = this;
 var runtimeScene = this._runtimeScene;
+let scopeInstanceContainer = null;
 var thisObjectList = [this.owner];
 var Object = Hashtable.newFrom({Object: thisObjectList});
 var Behavior = this.name;
@@ -1204,14 +1249,15 @@ var eventsFunctionContext = {
   createObject: function(objectName) {
     const objectsList = eventsFunctionContext._objectsMap[objectName];
     if (objectsList) {
-      const object = parentEventsFunctionContext ?
+      const object = parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
         parentEventsFunctionContext.createObject(objectsList.firstKey()) :
         runtimeScene.createObject(objectsList.firstKey());
       if (object) {
         objectsList.get(objectsList.firstKey()).push(object);
         eventsFunctionContext._objectArraysMap[objectName].push(object);
       }
-      return object;    }
+      return object;
+    }
     return null;
   },
   getInstancesCountOnScene: function(objectName) {
@@ -1219,7 +1265,7 @@ var eventsFunctionContext = {
     let count = 0;
     if (objectsList) {
       for(const objectName in objectsList.items)
-        count += parentEventsFunctionContext ?
+        count += parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
 parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
         runtimeScene.getInstancesCountOnScene(objectName);
     }
@@ -1258,10 +1304,12 @@ let isConditionTrue_0 = false;
 {
 gdjs.copyArray(eventsFunctionContext.getObjects("Object"), gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.JumpToPositionContext.GDObjectObjects1);
 {eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._setTypedText(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getTypedText()+gdjs.evtTools.string.subStr(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getFullText(), 0, eventsFunctionContext.getArgument("CharacterIndex")))
-}{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.JumpToPositionContext.GDObjectObjects1.length ;i < len;++i) {
+}
+{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.JumpToPositionContext.GDObjectObjects1.length ;i < len;++i) {
     gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.JumpToPositionContext.GDObjectObjects1[i].getBehavior(eventsFunctionContext.getBehaviorName("Text")).setText(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getTypedText());
 }
-}}
+}
+}
 
 }
 
@@ -1272,6 +1320,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.JumpToPosition = funct
 
 var that = this;
 var runtimeScene = this._runtimeScene;
+let scopeInstanceContainer = null;
 var thisObjectList = [this.owner];
 var Object = Hashtable.newFrom({Object: thisObjectList});
 var Behavior = this.name;
@@ -1301,14 +1350,15 @@ var eventsFunctionContext = {
   createObject: function(objectName) {
     const objectsList = eventsFunctionContext._objectsMap[objectName];
     if (objectsList) {
-      const object = parentEventsFunctionContext ?
+      const object = parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
         parentEventsFunctionContext.createObject(objectsList.firstKey()) :
         runtimeScene.createObject(objectsList.firstKey());
       if (object) {
         objectsList.get(objectsList.firstKey()).push(object);
         eventsFunctionContext._objectArraysMap[objectName].push(object);
       }
-      return object;    }
+      return object;
+    }
     return null;
   },
   getInstancesCountOnScene: function(objectName) {
@@ -1316,7 +1366,7 @@ var eventsFunctionContext = {
     let count = 0;
     if (objectsList) {
       for(const objectName in objectsList.items)
-        count += parentEventsFunctionContext ?
+        count += parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
 parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
         runtimeScene.getInstancesCountOnScene(objectName);
     }
@@ -1356,11 +1406,14 @@ let isConditionTrue_0 = false;
 {
 gdjs.copyArray(eventsFunctionContext.getObjects("Object"), gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ShowFullTextContext.GDObjectObjects1);
 {eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._setTypedText(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getTypedText()+eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getFullText())
-}{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ShowFullTextContext.GDObjectObjects1.length ;i < len;++i) {
+}
+{for(var i = 0, len = gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ShowFullTextContext.GDObjectObjects1.length ;i < len;++i) {
     gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ShowFullTextContext.GDObjectObjects1[i].getBehavior(eventsFunctionContext.getBehaviorName("Text")).setText(eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getTypedText());
 }
-}{gdjs.evtTools.runtimeScene.removeTimer(runtimeScene, "__AutoTyping.WriteTimer");
-}}
+}
+{gdjs.evtTools.runtimeScene.removeTimer(runtimeScene, "__AutoTyping.WriteTimer");
+}
+}
 
 }
 
@@ -1371,6 +1424,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ShowFullText = functio
 
 var that = this;
 var runtimeScene = this._runtimeScene;
+let scopeInstanceContainer = null;
 var thisObjectList = [this.owner];
 var Object = Hashtable.newFrom({Object: thisObjectList});
 var Behavior = this.name;
@@ -1400,14 +1454,15 @@ var eventsFunctionContext = {
   createObject: function(objectName) {
     const objectsList = eventsFunctionContext._objectsMap[objectName];
     if (objectsList) {
-      const object = parentEventsFunctionContext ?
+      const object = parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
         parentEventsFunctionContext.createObject(objectsList.firstKey()) :
         runtimeScene.createObject(objectsList.firstKey());
       if (object) {
         objectsList.get(objectsList.firstKey()).push(object);
         eventsFunctionContext._objectArraysMap[objectName].push(object);
       }
-      return object;    }
+      return object;
+    }
     return null;
   },
   getInstancesCountOnScene: function(objectName) {
@@ -1415,7 +1470,7 @@ var eventsFunctionContext = {
     let count = 0;
     if (objectsList) {
       for(const objectName in objectsList.items)
-        count += parentEventsFunctionContext ?
+        count += parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
 parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
         runtimeScene.getInstancesCountOnScene(objectName);
     }
@@ -1452,7 +1507,8 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IntervalContext.events
 
 let isConditionTrue_0 = false;
 {
-{eventsFunctionContext.returnValue = eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getInterval();}}
+{eventsFunctionContext.returnValue = eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getInterval();}
+}
 
 }
 
@@ -1463,6 +1519,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.Interval = function(pa
 
 var that = this;
 var runtimeScene = this._runtimeScene;
+let scopeInstanceContainer = null;
 var thisObjectList = [this.owner];
 var Object = Hashtable.newFrom({Object: thisObjectList});
 var Behavior = this.name;
@@ -1492,14 +1549,15 @@ var eventsFunctionContext = {
   createObject: function(objectName) {
     const objectsList = eventsFunctionContext._objectsMap[objectName];
     if (objectsList) {
-      const object = parentEventsFunctionContext ?
+      const object = parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
         parentEventsFunctionContext.createObject(objectsList.firstKey()) :
         runtimeScene.createObject(objectsList.firstKey());
       if (object) {
         objectsList.get(objectsList.firstKey()).push(object);
         eventsFunctionContext._objectArraysMap[objectName].push(object);
       }
-      return object;    }
+      return object;
+    }
     return null;
   },
   getInstancesCountOnScene: function(objectName) {
@@ -1507,7 +1565,7 @@ var eventsFunctionContext = {
     let count = 0;
     if (objectsList) {
       for(const objectName in objectsList.items)
-        count += parentEventsFunctionContext ?
+        count += parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
 parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
         runtimeScene.getInstancesCountOnScene(objectName);
     }
@@ -1545,7 +1603,8 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.SetIntervalContext.eve
 let isConditionTrue_0 = false;
 {
 {eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._setInterval(eventsFunctionContext.getArgument("Value"))
-}}
+}
+}
 
 }
 
@@ -1556,6 +1615,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.SetInterval = function
 
 var that = this;
 var runtimeScene = this._runtimeScene;
+let scopeInstanceContainer = null;
 var thisObjectList = [this.owner];
 var Object = Hashtable.newFrom({Object: thisObjectList});
 var Behavior = this.name;
@@ -1585,14 +1645,15 @@ var eventsFunctionContext = {
   createObject: function(objectName) {
     const objectsList = eventsFunctionContext._objectsMap[objectName];
     if (objectsList) {
-      const object = parentEventsFunctionContext ?
+      const object = parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
         parentEventsFunctionContext.createObject(objectsList.firstKey()) :
         runtimeScene.createObject(objectsList.firstKey());
       if (object) {
         objectsList.get(objectsList.firstKey()).push(object);
         eventsFunctionContext._objectArraysMap[objectName].push(object);
       }
-      return object;    }
+      return object;
+    }
     return null;
   },
   getInstancesCountOnScene: function(objectName) {
@@ -1600,7 +1661,7 @@ var eventsFunctionContext = {
     let count = 0;
     if (objectsList) {
       for(const objectName in objectsList.items)
-        count += parentEventsFunctionContext ?
+        count += parentEventsFunctionContext && !(scopeInstanceContainer && scopeInstanceContainer.isObjectRegistered(objectName)) ?
 parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
         runtimeScene.getInstancesCountOnScene(objectName);
     }
