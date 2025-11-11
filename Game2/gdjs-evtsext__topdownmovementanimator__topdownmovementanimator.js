@@ -50,9 +50,9 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
   }
 
   // Network sync:
-  getNetworkSyncData() {
+  getNetworkSyncData(syncOptions) {
     return {
-      ...super.getNetworkSyncData(),
+      ...super.getNetworkSyncData(syncOptions),
       props: {
         
     Animation: this._behaviorData.Animation,
@@ -66,8 +66,8 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
       }
     };
   }
-  updateFromNetworkSyncData(networkSyncData) {
-    super.updateFromNetworkSyncData(networkSyncData);
+  updateFromNetworkSyncData(networkSyncData, options) {
+    super.updateFromNetworkSyncData(networkSyncData, options);
     
     if (networkSyncData.props.Animation !== undefined)
       this._behaviorData.Animation = networkSyncData.props.Animation;
@@ -185,6 +185,7 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
 
 // Methods:
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.onCreatedContext = {};
+gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.onCreatedContext.idToCallbackMap = new Map();
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.onCreatedContext.GDObjectObjects1= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.onCreatedContext.GDObjectObjects2= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.onCreatedContext.GDObjectObjects3= [];
@@ -350,6 +351,7 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
 return;
 }
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.onActivateContext = {};
+gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.onActivateContext.idToCallbackMap = new Map();
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.onActivateContext.GDObjectObjects1= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.onActivateContext.GDObjectObjects2= [];
 
@@ -450,6 +452,7 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
 return;
 }
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.doStepPostEventsContext = {};
+gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.doStepPostEventsContext.idToCallbackMap = new Map();
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.doStepPostEventsContext.GDObjectObjects1= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.doStepPostEventsContext.GDObjectObjects2= [];
 
@@ -550,6 +553,7 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
 return;
 }
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationContext = {};
+gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationContext.idToCallbackMap = new Map();
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationContext.GDObjectObjects1= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationContext.GDObjectObjects2= [];
 
@@ -686,6 +690,7 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
 return;
 }
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.AnimationNameContext = {};
+gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.AnimationNameContext.idToCallbackMap = new Map();
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.AnimationNameContext.GDObjectObjects1= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.AnimationNameContext.GDObjectObjects2= [];
 
@@ -782,6 +787,7 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
 return "" + eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.SetAnimationNameContext = {};
+gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.SetAnimationNameContext.idToCallbackMap = new Map();
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.SetAnimationNameContext.GDObjectObjects1= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.SetAnimationNameContext.GDObjectObjects2= [];
 
@@ -899,6 +905,7 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
 return;
 }
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.IsPausingAnimationContext = {};
+gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.IsPausingAnimationContext.idToCallbackMap = new Map();
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.IsPausingAnimationContext.GDObjectObjects1= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.IsPausingAnimationContext.GDObjectObjects2= [];
 
@@ -998,6 +1005,7 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
 return !!eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.SetIsPausingAnimationContext = {};
+gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.SetIsPausingAnimationContext.idToCallbackMap = new Map();
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.SetIsPausingAnimationContext.GDObjectObjects1= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.SetIsPausingAnimationContext.GDObjectObjects2= [];
 
@@ -1124,6 +1132,7 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
 return;
 }
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.IsScalingAnimationContext = {};
+gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.IsScalingAnimationContext.idToCallbackMap = new Map();
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.IsScalingAnimationContext.GDObjectObjects1= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.IsScalingAnimationContext.GDObjectObjects2= [];
 
@@ -1223,6 +1232,7 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
 return !!eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.SetIsScalingAnimationContext = {};
+gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.SetIsScalingAnimationContext.idToCallbackMap = new Map();
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.SetIsScalingAnimationContext.GDObjectObjects1= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.SetIsScalingAnimationContext.GDObjectObjects2= [];
 
@@ -1349,6 +1359,7 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
 return;
 }
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationSpeedScaleContext = {};
+gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationSpeedScaleContext.idToCallbackMap = new Map();
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationSpeedScaleContext.GDObjectObjects1= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationSpeedScaleContext.GDObjectObjects2= [];
 
@@ -1484,6 +1495,7 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
 return;
 }
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationPauseContext = {};
+gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationPauseContext.idToCallbackMap = new Map();
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationPauseContext.GDObjectObjects1= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationPauseContext.GDObjectObjects2= [];
 
@@ -1619,6 +1631,7 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
 return;
 }
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.DirectionContext = {};
+gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.DirectionContext.idToCallbackMap = new Map();
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.DirectionContext.GDObjectObjects1= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.DirectionContext.GDObjectObjects2= [];
 
@@ -1716,6 +1729,7 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
 return Number(eventsFunctionContext.returnValue) || 0;
 }
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.DirectionDifferenceContext = {};
+gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.DirectionDifferenceContext.idToCallbackMap = new Map();
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.DirectionDifferenceContext.GDObjectObjects1= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.DirectionDifferenceContext.GDObjectObjects2= [];
 
@@ -1814,6 +1828,7 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
 return Number(eventsFunctionContext.returnValue) || 0;
 }
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationDirectionContext = {};
+gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationDirectionContext.idToCallbackMap = new Map();
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationDirectionContext.GDObjectObjects1= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationDirectionContext.GDObjectObjects2= [];
 
@@ -1993,6 +2008,7 @@ gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAn
 return;
 }
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationNameContext = {};
+gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationNameContext.idToCallbackMap = new Map();
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationNameContext.GDObjectObjects1= [];
 gdjs.evtsExt__TopDownMovementAnimator__TopDownMovementAnimator.TopDownMovementAnimator.prototype.UpdateAnimationNameContext.GDObjectObjects2= [];
 

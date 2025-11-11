@@ -41,9 +41,9 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping = class AutoTyping extends gdjs.
   }
 
   // Network sync:
-  getNetworkSyncData() {
+  getNetworkSyncData(syncOptions) {
     return {
-      ...super.getNetworkSyncData(),
+      ...super.getNetworkSyncData(syncOptions),
       props: {
         
     Text: this._behaviorData.Text,
@@ -54,8 +54,8 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping = class AutoTyping extends gdjs.
       }
     };
   }
-  updateFromNetworkSyncData(networkSyncData) {
-    super.updateFromNetworkSyncData(networkSyncData);
+  updateFromNetworkSyncData(networkSyncData, options) {
+    super.updateFromNetworkSyncData(networkSyncData, options);
     
     if (networkSyncData.props.Text !== undefined)
       this._behaviorData.Text = networkSyncData.props.Text;
@@ -132,6 +132,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.getSharedData = function(instanc
 
 // Methods:
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onCreatedContext = {};
+gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onCreatedContext.idToCallbackMap = new Map();
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onCreatedContext.GDObjectObjects1= [];
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onCreatedContext.GDObjectObjects2= [];
 
@@ -233,6 +234,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onCreatedContext.GDObj
 return;
 }
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext = {};
+gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.idToCallbackMap = new Map();
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects1= [];
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects2= [];
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContext.GDObjectObjects3= [];
@@ -514,6 +516,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.doStepPostEventsContex
 return;
 }
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedContext = {};
+gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedContext.idToCallbackMap = new Map();
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedContext.GDObjectObjects1= [];
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedContext.GDObjectObjects2= [];
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedContext.GDObjectObjects3= [];
@@ -671,6 +674,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsNextWordWrappedConte
 return !!eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ClearForcedLineBreakContext = {};
+gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ClearForcedLineBreakContext.idToCallbackMap = new Map();
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ClearForcedLineBreakContext.GDObjectObjects1= [];
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ClearForcedLineBreakContext.GDObjectObjects2= [];
 
@@ -767,6 +771,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ClearForcedLineBreakCo
 return;
 }
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onDeActivateContext = {};
+gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onDeActivateContext.idToCallbackMap = new Map();
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onDeActivateContext.GDObjectObjects1= [];
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onDeActivateContext.GDObjectObjects2= [];
 
@@ -866,6 +871,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onDeActivateContext.GD
 return;
 }
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onActivateContext = {};
+gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onActivateContext.idToCallbackMap = new Map();
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onActivateContext.GDObjectObjects1= [];
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onActivateContext.GDObjectObjects2= [];
 
@@ -965,6 +971,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.onActivateContext.GDOb
 return;
 }
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsFinishedContext = {};
+gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsFinishedContext.idToCallbackMap = new Map();
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsFinishedContext.GDObjectObjects1= [];
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsFinishedContext.GDObjectObjects2= [];
 
@@ -1063,6 +1070,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IsFinishedContext.GDOb
 return !!eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.HasJustTypedContext = {};
+gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.HasJustTypedContext.idToCallbackMap = new Map();
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.HasJustTypedContext.GDObjectObjects1= [];
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.HasJustTypedContext.GDObjectObjects2= [];
 
@@ -1161,6 +1169,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.HasJustTypedContext.GD
 return !!eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.RestartFromBeginningContext = {};
+gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.RestartFromBeginningContext.idToCallbackMap = new Map();
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.RestartFromBeginningContext.GDObjectObjects1= [];
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.RestartFromBeginningContext.GDObjectObjects2= [];
 
@@ -1291,6 +1300,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.RestartFromBeginningCo
 return;
 }
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.JumpToPositionContext = {};
+gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.JumpToPositionContext.idToCallbackMap = new Map();
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.JumpToPositionContext.GDObjectObjects1= [];
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.JumpToPositionContext.GDObjectObjects2= [];
 
@@ -1393,6 +1403,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.JumpToPositionContext.
 return;
 }
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ShowFullTextContext = {};
+gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ShowFullTextContext.idToCallbackMap = new Map();
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ShowFullTextContext.GDObjectObjects1= [];
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ShowFullTextContext.GDObjectObjects2= [];
 
@@ -1496,6 +1507,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.ShowFullTextContext.GD
 return;
 }
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IntervalContext = {};
+gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IntervalContext.idToCallbackMap = new Map();
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IntervalContext.GDObjectObjects1= [];
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IntervalContext.GDObjectObjects2= [];
 
@@ -1591,6 +1603,7 @@ gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.IntervalContext.GDObje
 return Number(eventsFunctionContext.returnValue) || 0;
 }
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.SetIntervalContext = {};
+gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.SetIntervalContext.idToCallbackMap = new Map();
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.SetIntervalContext.GDObjectObjects1= [];
 gdjs.evtsExt__AutoTyping__AutoTyping.AutoTyping.prototype.SetIntervalContext.GDObjectObjects2= [];
 

@@ -6,6 +6,7 @@ if (typeof gdjs.evtsExt__Flash__ToggleColorTint !== "undefined") {
 }
 
 gdjs.evtsExt__Flash__ToggleColorTint = {};
+gdjs.evtsExt__Flash__ToggleColorTint.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__ToggleColorTint.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__ToggleColorTint.GDObjectObjects2= [];
 gdjs.evtsExt__Flash__ToggleColorTint.GDObjectObjects3= [];

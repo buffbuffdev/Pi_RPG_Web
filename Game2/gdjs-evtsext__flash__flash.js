@@ -35,9 +35,9 @@ gdjs.evtsExt__Flash__Flash.Flash = class Flash extends gdjs.RuntimeBehavior {
   }
 
   // Network sync:
-  getNetworkSyncData() {
+  getNetworkSyncData(syncOptions) {
     return {
-      ...super.getNetworkSyncData(),
+      ...super.getNetworkSyncData(syncOptions),
       props: {
         
     HalfPeriodTime: this._behaviorData.HalfPeriodTime,
@@ -46,8 +46,8 @@ gdjs.evtsExt__Flash__Flash.Flash = class Flash extends gdjs.RuntimeBehavior {
       }
     };
   }
-  updateFromNetworkSyncData(networkSyncData) {
-    super.updateFromNetworkSyncData(networkSyncData);
+  updateFromNetworkSyncData(networkSyncData, options) {
+    super.updateFromNetworkSyncData(networkSyncData, options);
     
     if (networkSyncData.props.HalfPeriodTime !== undefined)
       this._behaviorData.HalfPeriodTime = networkSyncData.props.HalfPeriodTime;
@@ -108,6 +108,7 @@ gdjs.evtsExt__Flash__Flash.Flash.getSharedData = function(instanceContainer, beh
 
 // Methods:
 gdjs.evtsExt__Flash__Flash.Flash.prototype.doStepPreEventsContext = {};
+gdjs.evtsExt__Flash__Flash.Flash.prototype.doStepPreEventsContext.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__Flash.Flash.prototype.doStepPreEventsContext.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__Flash.Flash.prototype.doStepPreEventsContext.GDObjectObjects2= [];
 gdjs.evtsExt__Flash__Flash.Flash.prototype.doStepPreEventsContext.GDObjectObjects3= [];
@@ -288,6 +289,7 @@ gdjs.evtsExt__Flash__Flash.Flash.prototype.doStepPreEventsContext.GDObjectObject
 return;
 }
 gdjs.evtsExt__Flash__Flash.Flash.prototype.FlashContext = {};
+gdjs.evtsExt__Flash__Flash.Flash.prototype.FlashContext.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__Flash.Flash.prototype.FlashContext.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__Flash.Flash.prototype.FlashContext.GDObjectObjects2= [];
 
@@ -419,6 +421,7 @@ gdjs.evtsExt__Flash__Flash.Flash.prototype.FlashContext.GDObjectObjects2.length 
 return;
 }
 gdjs.evtsExt__Flash__Flash.Flash.prototype.IsFlashingContext = {};
+gdjs.evtsExt__Flash__Flash.Flash.prototype.IsFlashingContext.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__Flash.Flash.prototype.IsFlashingContext.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__Flash.Flash.prototype.IsFlashingContext.GDObjectObjects2= [];
 
@@ -527,6 +530,7 @@ gdjs.evtsExt__Flash__Flash.Flash.prototype.IsFlashingContext.GDObjectObjects2.le
 return !!eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__Flash__Flash.Flash.prototype.onDeActivateContext = {};
+gdjs.evtsExt__Flash__Flash.Flash.prototype.onDeActivateContext.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__Flash.Flash.prototype.onDeActivateContext.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__Flash.Flash.prototype.onDeActivateContext.GDObjectObjects2= [];
 
@@ -625,6 +629,7 @@ gdjs.evtsExt__Flash__Flash.Flash.prototype.onDeActivateContext.GDObjectObjects2.
 return;
 }
 gdjs.evtsExt__Flash__Flash.Flash.prototype.StopContext = {};
+gdjs.evtsExt__Flash__Flash.Flash.prototype.StopContext.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__Flash.Flash.prototype.StopContext.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__Flash.Flash.prototype.StopContext.GDObjectObjects2= [];
 
@@ -736,6 +741,7 @@ gdjs.evtsExt__Flash__Flash.Flash.prototype.StopContext.GDObjectObjects2.length =
 return;
 }
 gdjs.evtsExt__Flash__Flash.Flash.prototype.HalfPeriodTimeContext = {};
+gdjs.evtsExt__Flash__Flash.Flash.prototype.HalfPeriodTimeContext.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__Flash.Flash.prototype.HalfPeriodTimeContext.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__Flash.Flash.prototype.HalfPeriodTimeContext.GDObjectObjects2= [];
 
@@ -830,6 +836,7 @@ gdjs.evtsExt__Flash__Flash.Flash.prototype.HalfPeriodTimeContext.GDObjectObjects
 return Number(eventsFunctionContext.returnValue) || 0;
 }
 gdjs.evtsExt__Flash__Flash.Flash.prototype.SetHalfPeriodTimeContext = {};
+gdjs.evtsExt__Flash__Flash.Flash.prototype.SetHalfPeriodTimeContext.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__Flash.Flash.prototype.SetHalfPeriodTimeContext.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__Flash.Flash.prototype.SetHalfPeriodTimeContext.GDObjectObjects2= [];
 

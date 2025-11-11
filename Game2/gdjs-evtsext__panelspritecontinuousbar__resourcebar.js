@@ -38,9 +38,9 @@ gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar = class Resource
   }
 
   // Network sync:
-  getNetworkSyncData() {
+  getNetworkSyncData(syncOptions) {
     return {
-      ...super.getNetworkSyncData(),
+      ...super.getNetworkSyncData(syncOptions),
       props: {
         
     CurrentValue: this._behaviorData.CurrentValue,
@@ -50,8 +50,8 @@ gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar = class Resource
       }
     };
   }
-  updateFromNetworkSyncData(networkSyncData) {
-    super.updateFromNetworkSyncData(networkSyncData);
+  updateFromNetworkSyncData(networkSyncData, options) {
+    super.updateFromNetworkSyncData(networkSyncData, options);
     
     if (networkSyncData.props.CurrentValue !== undefined)
       this._behaviorData.CurrentValue = networkSyncData.props.CurrentValue;
@@ -117,6 +117,7 @@ gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.getSharedData = 
 
 // Methods:
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.doStepPostEventsContext = {};
+gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.doStepPostEventsContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.doStepPostEventsContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.doStepPostEventsContext.GDObjectObjects2= [];
 
@@ -232,6 +233,7 @@ gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.doStep
 return;
 }
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.ValueContext = {};
+gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.ValueContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.ValueContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.ValueContext.GDObjectObjects2= [];
 
@@ -326,6 +328,7 @@ gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.ValueC
 return Number(eventsFunctionContext.returnValue) || 0;
 }
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.SetValueContext = {};
+gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.SetValueContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.SetValueContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.SetValueContext.GDObjectObjects2= [];
 
@@ -460,6 +463,7 @@ gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.SetVal
 return;
 }
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.MaxValueContext = {};
+gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.MaxValueContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.MaxValueContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.MaxValueContext.GDObjectObjects2= [];
 
@@ -554,6 +558,7 @@ gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.MaxVal
 return Number(eventsFunctionContext.returnValue) || 0;
 }
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.SetMaxValueContext = {};
+gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.SetMaxValueContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.SetMaxValueContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.SetMaxValueContext.GDObjectObjects2= [];
 
@@ -650,6 +655,7 @@ gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.SetMax
 return;
 }
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.IsEmptyContext = {};
+gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.IsEmptyContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.IsEmptyContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.IsEmptyContext.GDObjectObjects2= [];
 
@@ -747,6 +753,7 @@ gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.IsEmpt
 return !!eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.IsFullContext = {};
+gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.IsFullContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.IsFullContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.IsFullContext.GDObjectObjects2= [];
 
@@ -844,6 +851,7 @@ gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.IsFull
 return !!eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.PreviousHighValueContext = {};
+gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.PreviousHighValueContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.PreviousHighValueContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.PreviousHighValueContext.GDObjectObjects2= [];
 
@@ -938,6 +946,7 @@ gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.Previo
 return Number(eventsFunctionContext.returnValue) || 0;
 }
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.UpdatePreviousHighValueContext = {};
+gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.UpdatePreviousHighValueContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.UpdatePreviousHighValueContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.UpdatePreviousHighValueContext.GDObjectObjects2= [];
 
@@ -1033,6 +1042,7 @@ gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.Update
 return;
 }
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.PreviousHighValueDurationContext = {};
+gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.PreviousHighValueDurationContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.PreviousHighValueDurationContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.PreviousHighValueDurationContext.GDObjectObjects2= [];
 
@@ -1127,6 +1137,7 @@ gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.Previo
 return Number(eventsFunctionContext.returnValue) || 0;
 }
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.SetPreviousHighValueDurationContext = {};
+gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.SetPreviousHighValueDurationContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.SetPreviousHighValueDurationContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.SetPreviousHighValueDurationContext.GDObjectObjects2= [];
 
@@ -1223,6 +1234,7 @@ gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.SetPre
 return;
 }
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.IsChangingContext = {};
+gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.IsChangingContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.IsChangingContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteContinuousBar__ResourceBar.ResourceBar.prototype.IsChangingContext.GDObjectObjects2= [];
 

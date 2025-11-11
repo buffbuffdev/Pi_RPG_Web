@@ -1,5 +1,6 @@
 gdjs.LoadingScreenCode = {};
 gdjs.LoadingScreenCode.localVariables = [];
+gdjs.LoadingScreenCode.idToCallbackMap = new Map();
 gdjs.LoadingScreenCode.GDLoadingScreenObjects1= [];
 gdjs.LoadingScreenCode.GDLoadingScreenObjects2= [];
 gdjs.LoadingScreenCode.GDLoadingBarObjects1= [];

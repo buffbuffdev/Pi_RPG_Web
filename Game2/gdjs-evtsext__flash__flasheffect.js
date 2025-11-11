@@ -41,9 +41,9 @@ gdjs.evtsExt__Flash__FlashEffect.FlashEffect = class FlashEffect extends gdjs.Ru
   }
 
   // Network sync:
-  getNetworkSyncData() {
+  getNetworkSyncData(syncOptions) {
     return {
-      ...super.getNetworkSyncData(),
+      ...super.getNetworkSyncData(syncOptions),
       props: {
         
     Effect: this._behaviorData.Effect,
@@ -54,8 +54,8 @@ gdjs.evtsExt__Flash__FlashEffect.FlashEffect = class FlashEffect extends gdjs.Ru
       }
     };
   }
-  updateFromNetworkSyncData(networkSyncData) {
-    super.updateFromNetworkSyncData(networkSyncData);
+  updateFromNetworkSyncData(networkSyncData, options) {
+    super.updateFromNetworkSyncData(networkSyncData, options);
     
     if (networkSyncData.props.Effect !== undefined)
       this._behaviorData.Effect = networkSyncData.props.Effect;
@@ -132,6 +132,7 @@ gdjs.evtsExt__Flash__FlashEffect.FlashEffect.getSharedData = function(instanceCo
 
 // Methods:
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.doStepPreEventsContext = {};
+gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.doStepPreEventsContext.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.doStepPreEventsContext.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.doStepPreEventsContext.GDObjectObjects2= [];
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.doStepPreEventsContext.GDObjectObjects3= [];
@@ -322,6 +323,7 @@ gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.doStepPreEventsContext.GD
 return;
 }
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.FlashContext = {};
+gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.FlashContext.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.FlashContext.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.FlashContext.GDObjectObjects2= [];
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.FlashContext.GDObjectObjects3= [];
@@ -565,6 +567,7 @@ gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.FlashContext.GDObjectObje
 return;
 }
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.IsFlashingContext = {};
+gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.IsFlashingContext.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.IsFlashingContext.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.IsFlashingContext.GDObjectObjects2= [];
 
@@ -674,6 +677,7 @@ gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.IsFlashingContext.GDObjec
 return !!eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.onDeActivateContext = {};
+gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.onDeActivateContext.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.onDeActivateContext.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.onDeActivateContext.GDObjectObjects2= [];
 
@@ -773,6 +777,7 @@ gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.onDeActivateContext.GDObj
 return;
 }
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.StopContext = {};
+gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.StopContext.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.StopContext.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.StopContext.GDObjectObjects2= [];
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.StopContext.GDObjectObjects3= [];
@@ -940,6 +945,7 @@ gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.StopContext.GDObjectObjec
 return;
 }
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.HalfPeriodTimeContext = {};
+gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.HalfPeriodTimeContext.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.HalfPeriodTimeContext.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.HalfPeriodTimeContext.GDObjectObjects2= [];
 
@@ -1035,6 +1041,7 @@ gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.HalfPeriodTimeContext.GDO
 return Number(eventsFunctionContext.returnValue) || 0;
 }
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.SetHalfPeriodTimeContext = {};
+gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.SetHalfPeriodTimeContext.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.SetHalfPeriodTimeContext.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.SetHalfPeriodTimeContext.GDObjectObjects2= [];
 
@@ -1132,6 +1139,7 @@ gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.SetHalfPeriodTimeContext.
 return;
 }
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.ToggleEffectContext = {};
+gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.ToggleEffectContext.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.ToggleEffectContext.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__FlashEffect.FlashEffect.prototype.ToggleEffectContext.GDObjectObjects2= [];
 

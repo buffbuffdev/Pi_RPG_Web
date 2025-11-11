@@ -6,6 +6,7 @@ if (typeof gdjs.evtsExt__Flash__ToggleVisibility !== "undefined") {
 }
 
 gdjs.evtsExt__Flash__ToggleVisibility = {};
+gdjs.evtsExt__Flash__ToggleVisibility.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__ToggleVisibility.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__ToggleVisibility.GDObjectObjects2= [];
 

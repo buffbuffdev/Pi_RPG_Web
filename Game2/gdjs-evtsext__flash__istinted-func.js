@@ -6,6 +6,7 @@ if (typeof gdjs.evtsExt__Flash__IsTinted !== "undefined") {
 }
 
 gdjs.evtsExt__Flash__IsTinted = {};
+gdjs.evtsExt__Flash__IsTinted.idToCallbackMap = new Map();
 gdjs.evtsExt__Flash__IsTinted.GDObjectObjects1= [];
 gdjs.evtsExt__Flash__IsTinted.GDObjectObjects2= [];
 

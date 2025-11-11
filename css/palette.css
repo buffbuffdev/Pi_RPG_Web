@@ -18,7 +18,8 @@
   --color-text-white: #fff;
 
   /* === Palette principale (sable/or) === */
-  --color-primary: #ecba60;       /* or chaud */
+  --color-primary: #c15a0a;    /* couleur logo */
+  --color-primary2: #ecba60;       /* or chaud */
   --color-primary-dark: #d29d3c;  /* or profond */
   --color-primary-light: #f3e2c6; /* sable */
   

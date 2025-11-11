@@ -2,7 +2,12 @@
 @import url('./palette.css');
 
 /* === Reset & Base === */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   background: var(--color-bg-main);
@@ -89,36 +94,30 @@ h2, .accordion-toggle {
 
 /* === Hero Banner === */
 .hero {
-  position: relative;
-  height: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  background: var(--color-bg-main);
-  padding: 1rem;
-}
-.hero .hero-frame {
-  background: url('../assets/DialogBox.png') center center / 100% 100% no-repeat;
-  min-width: 800px;
-  max-width: 90vw;
-  min-height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2em 2em;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-.hero .hero-text {
-  color: var(--color-primary) !important;
-  font-family: 'Orbitron', sans-serif;
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  height: 100vh; /* occupe toute la hauteur de l’écran */
   text-align: center;
   background: none;
-  box-shadow: none;
-  border-radius: 0;
-  padding: 0;
+}
+
+.hero-frame {
+  display: flex;
+  flex-direction: column; /* logo au-dessus du texte */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4em;
+  background: none;
+  max-width: 90vw;
+}
+
+.hero-logo-frame {
+  height: 100px;
+  max-width: 90%;
+  margin-bottom: 1em;
+  display: block;
 }
 
 /* === Timeline === */
@@ -191,7 +190,12 @@ h2, .accordion-toggle {
   box-shadow: 0 4px 16px var(--color-bg-dark);
 }
 .btn-social i { color: inherit; transition: color 0.3s; }
-.btn-social:hover { transform: scale(1.2) rotate(10deg); color: var(--color-primary); background: var(--color-bg-card); box-shadow: 0 0 15px var(--color-bg-dark); }
+.btn-social:hover {
+  transform: scale(1.2) rotate(10deg);
+  color: var(--color-primary);
+  background: var(--color-bg-card);
+  box-shadow: 0 0 15px var(--color-bg-dark);
+}
 .btn-social:hover i { color: var(--color-primary); }
 
 /* === Press Previews === */
@@ -216,7 +220,11 @@ h2, .accordion-toggle {
 .preview-text strong { color: var(--color-primary); font-size: 0.95rem; }
 .preview-text p { color: var(--color-text-white); font-size: 0.85rem; }
 .preview-text a { color: var(--color-primary); text-decoration: none; font-weight: 500; }
-.preview-text a:hover { color: var(--color-bg-dark); text-decoration: underline; background: var(--color-primary); }
+.preview-text a:hover {
+  color: var(--color-bg-dark);
+  text-decoration: underline;
+  background: var(--color-primary);
+}
 
 /* === Textes principaux === */
 body,
@@ -234,5 +242,5 @@ h2,
   color: var(--color-primary);
 }
 
-/* Pour les liens au survol, tu peux garder une couleur contrastée */
+/* Pour les liens au survol */
 .preview-text a:hover { color: var(--color-bg-dark); }

@@ -44,9 +44,9 @@ gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker = class IdleTracker extends g
   }
 
   // Network sync:
-  getNetworkSyncData() {
+  getNetworkSyncData(syncOptions) {
     return {
-      ...super.getNetworkSyncData(),
+      ...super.getNetworkSyncData(syncOptions),
       props: {
         
     LastX: this._behaviorData.LastX,
@@ -58,8 +58,8 @@ gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker = class IdleTracker extends g
       }
     };
   }
-  updateFromNetworkSyncData(networkSyncData) {
-    super.updateFromNetworkSyncData(networkSyncData);
+  updateFromNetworkSyncData(networkSyncData, options) {
+    super.updateFromNetworkSyncData(networkSyncData, options);
     
     if (networkSyncData.props.LastX !== undefined)
       this._behaviorData.LastX = networkSyncData.props.LastX;
@@ -144,6 +144,7 @@ gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.getSharedData = function(inst
 
 // Methods:
 gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.doStepPreEventsContext = {};
+gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.doStepPreEventsContext.idToCallbackMap = new Map();
 gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.doStepPreEventsContext.GDObjectObjects1= [];
 gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.doStepPreEventsContext.GDObjectObjects2= [];
 
@@ -288,6 +289,7 @@ gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.doStepPreEventsCont
 return;
 }
 gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.onCreatedContext = {};
+gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.onCreatedContext.idToCallbackMap = new Map();
 gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.onCreatedContext.GDObjectObjects1= [];
 gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.onCreatedContext.GDObjectObjects2= [];
 
@@ -386,6 +388,7 @@ gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.onCreatedContext.GD
 return;
 }
 gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.HasMovedFromLastPositionContext = {};
+gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.HasMovedFromLastPositionContext.idToCallbackMap = new Map();
 gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.HasMovedFromLastPositionContext.GDObjectObjects1= [];
 gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.HasMovedFromLastPositionContext.GDObjectObjects2= [];
 
@@ -483,6 +486,7 @@ gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.HasMovedFromLastPos
 return !!eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.IsIdleContext = {};
+gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.IsIdleContext.idToCallbackMap = new Map();
 gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.IsIdleContext.GDObjectObjects1= [];
 gdjs.evtsExt__IdleTracker__IdleTracker.IdleTracker.prototype.IsIdleContext.GDObjectObjects2= [];
 

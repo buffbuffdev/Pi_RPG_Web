@@ -26,16 +26,16 @@ gdjs.evtsExt__YSort__YSort.YSort = class YSort extends gdjs.RuntimeBehavior {
   }
 
   // Network sync:
-  getNetworkSyncData() {
+  getNetworkSyncData(syncOptions) {
     return {
-      ...super.getNetworkSyncData(),
+      ...super.getNetworkSyncData(syncOptions),
       props: {
         
       }
     };
   }
-  updateFromNetworkSyncData(networkSyncData) {
-    super.updateFromNetworkSyncData(networkSyncData);
+  updateFromNetworkSyncData(networkSyncData, options) {
+    super.updateFromNetworkSyncData(networkSyncData, options);
     
   }
 
@@ -69,6 +69,7 @@ gdjs.evtsExt__YSort__YSort.YSort.getSharedData = function(instanceContainer, beh
 
 // Methods:
 gdjs.evtsExt__YSort__YSort.YSort.prototype.doStepPostEventsContext = {};
+gdjs.evtsExt__YSort__YSort.YSort.prototype.doStepPostEventsContext.idToCallbackMap = new Map();
 gdjs.evtsExt__YSort__YSort.YSort.prototype.doStepPostEventsContext.GDObjectObjects1= [];
 gdjs.evtsExt__YSort__YSort.YSort.prototype.doStepPostEventsContext.GDObjectObjects2= [];
 

@@ -44,9 +44,9 @@ gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM = class ButtonFSM extends g
   }
 
   // Network sync:
-  getNetworkSyncData() {
+  getNetworkSyncData(syncOptions) {
     return {
-      ...super.getNetworkSyncData(),
+      ...super.getNetworkSyncData(syncOptions),
       props: {
         
     ShouldCheckHovering: this._behaviorData.ShouldCheckHovering,
@@ -58,8 +58,8 @@ gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM = class ButtonFSM extends g
       }
     };
   }
-  updateFromNetworkSyncData(networkSyncData) {
-    super.updateFromNetworkSyncData(networkSyncData);
+  updateFromNetworkSyncData(networkSyncData, options) {
+    super.updateFromNetworkSyncData(networkSyncData, options);
     
     if (networkSyncData.props.ShouldCheckHovering !== undefined)
       this._behaviorData.ShouldCheckHovering = networkSyncData.props.ShouldCheckHovering;
@@ -150,6 +150,7 @@ gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.getSharedData = function(in
 
 // Methods:
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.doStepPostEventsContext = {};
+gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.doStepPostEventsContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.doStepPostEventsContext.GDObjectObjects4_1final = [];
 
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.doStepPostEventsContext.GDObjectObjects1= [];
@@ -676,6 +677,7 @@ gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.doStepPostEventsC
 return;
 }
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.onDeActivateContext = {};
+gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.onDeActivateContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.onDeActivateContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.onDeActivateContext.GDObjectObjects2= [];
 
@@ -774,6 +776,7 @@ gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.onDeActivateConte
 return;
 }
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.ResetStateContext = {};
+gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.ResetStateContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.ResetStateContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.ResetStateContext.GDObjectObjects2= [];
 
@@ -871,6 +874,7 @@ gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.ResetStateContext
 return;
 }
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsIdleContext = {};
+gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsIdleContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsIdleContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsIdleContext.GDObjectObjects2= [];
 
@@ -968,6 +972,7 @@ gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsIdleContext.GDO
 return !!eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsClickedContext = {};
+gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsClickedContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsClickedContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsClickedContext.GDObjectObjects2= [];
 
@@ -1065,6 +1070,7 @@ gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsClickedContext.
 return !!eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsHoveredContext = {};
+gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsHoveredContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsHoveredContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsHoveredContext.GDObjectObjects2= [];
 
@@ -1162,6 +1168,7 @@ gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsHoveredContext.
 return !!eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsFocusedContext = {};
+gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsFocusedContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsFocusedContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsFocusedContext.GDObjectObjects2= [];
 
@@ -1273,6 +1280,7 @@ gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsFocusedContext.
 return !!eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsPressedContext = {};
+gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsPressedContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsPressedContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsPressedContext.GDObjectObjects2= [];
 
@@ -1370,6 +1378,7 @@ gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsPressedContext.
 return !!eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsPressedOutsideContext = {};
+gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsPressedOutsideContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsPressedOutsideContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsPressedOutsideContext.GDObjectObjects2= [];
 
@@ -1467,6 +1476,7 @@ gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.IsPressedOutsideC
 return !!eventsFunctionContext.returnValue;
 }
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.TouchIdContext = {};
+gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.TouchIdContext.idToCallbackMap = new Map();
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.TouchIdContext.GDObjectObjects1= [];
 gdjs.evtsExt__PanelSpriteButton__ButtonFSM.ButtonFSM.prototype.TouchIdContext.GDObjectObjects2= [];
 
