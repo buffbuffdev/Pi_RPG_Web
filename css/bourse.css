@@ -1,0 +1,148 @@
+@import url('./palette.css');
+
+/* Scoped styles for bourse.html — semantic class names to avoid collisions */
+.bourse-page {
+  background: linear-gradient(
+      rgba(0,0,0,0.35),
+      rgba(0,0,0,0.35)
+    ),
+    url('../assets/bg_exchange.png') center/cover no-repeat;
+  /* fallback to palette colors if gradients are defined in palette */
+  /* background: linear-gradient(var(--color-bg-gradient-start), var(--color-bg-gradient-end)), url('../assets/bg_exchange.png') center/cover no-repeat; */
+  color: var(--color-text-light);
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+}
+
+/* Balance */
+.balance-container {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+.balance-box {
+  background: var(--color-bg-glass);
+  color: var(--color-primary);
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.pi-icon { width: 26px; height: 26px; }         /* agrandi pour la tête de page / prix */
+.pi-icon-small { width: 22px; height: 22px; }   /* agrandi pour les inputs / listes */
+
+/* Page layout */
+.page-wrapper { max-width: 1100px; margin: 4.5rem auto 3rem; padding: 0 1rem; }
+.page-title { color: var(--color-primary); font-size: 2.25rem; text-align: center; margin-bottom: 1.5rem; }
+
+/* 2-column responsive layout */
+.layout { display: grid; grid-template-columns: 1fr 420px; gap: 1.5rem; align-items: start; }
+@media (max-width: 980px) { .layout { grid-template-columns: 1fr; } }
+
+/* Panels */
+.panel { background: var(--color-bg-card); border-radius: 16px; padding: 1.25rem; box-shadow: 0 8px 24px rgba(0,0,0,0.45); }
+.panel-title { font-size: 1.25rem; margin-bottom: 1rem; color: var(--color-primary); }
+
+/* Market grid */
+.market-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+
+/* Market card */
+.market-card {
+  background: var(--color-bg-feature);
+  color: var(--color-text-light);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  display:flex; flex-direction:column; align-items:center; gap:0.6rem;
+}
+.market-card-title { font-family:'Orbitron',sans-serif; font-weight:700; color:var(--color-primary); }
+.market-card-price { font-weight:800; color:var(--color-primary2); }
+
+/* Inventory grid */
+.inventaire-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; }
+@media (max-width: 700px) { .inventaire-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* Sell form */
+.sell-panel { margin-bottom: 1rem; background: transparent; padding: 0; box-shadow: none; }
+.sell-title { font-size: 1rem; margin-bottom: 0.6rem; color: var(--color-text-muted); }
+.sell-form { display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center; }
+.field { display:flex; flex-direction:column; gap:0.35rem; min-width: 120px; }
+.field label { font-size:0.85rem; color:var(--color-text-muted); }
+.field-input {
+  border-radius: 8px;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: var(--color-bg-glass);
+  color: var(--color-text-light);
+}
+
+/* Input-with-icon */
+.input-with-icon { display:flex; align-items:center; gap:0.4rem; }
+.pi-icon-small { width:18px; height:18px; }
+
+/* Action field aligns the button */
+.action-field { display:flex; align-items:flex-end; }
+
+/* Buttons specific to this page */
+.btn-small { padding: 0.55rem 0.9rem; min-height: 40px; font-size: 0.95rem; }
+
+/* Toast */
+.toast {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 70;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  opacity: 0;
+}
+.toast--visible { opacity: 1; transform: translateX(-50%) translateY(0); background: var(--color-bg-glass); color: var(--color-primary); padding: 0.6rem 1rem; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.45); pointer-events: auto; }
+
+/* Make Buy buttons inside market-card use the usual .btn-primary / DialogBox look */
+.bourse-page .market-card .btn-primary {
+  background: url('../assets/DialogBox.png') center center / 100% 100% no-repeat;
+  color: var(--color-primary2);
+  border: none;
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  min-height: 40px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.15s ease;
+  box-shadow: none;
+}
+
+/* smaller modifier for compact buy buttons */
+.bourse-page .market-card .btn-primary.btn-small {
+  padding: 0.45rem 0.9rem;
+  min-height: 36px;
+  font-size: 0.95rem;
+}
+
+/* hover state */
+.bourse-page .market-card .btn-primary:hover,
+.bourse-page .market-card .btn-primary:focus {
+  filter: brightness(1.05) drop-shadow(0 0 8px var(--color-primary));
+  transform: scale(1.03);
+  color: var(--color-text-white);
+}
+
+/* small responsive tweaks */
+@media (max-width: 480px) {
+  .balance-container { right: 0.8rem; top: 0.8rem; }
+  .page-wrapper { margin-top: 3rem; padding: 0 0.75rem; }
+  .market-card { padding: 0.8rem; }
+  .inventaire-grid { grid-template-columns: repeat(4, 1fr); }
+}

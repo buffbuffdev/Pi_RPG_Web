@@ -26,7 +26,7 @@ body {
 /* === Hero === */
 .hero {
   height: 100vh;
-  background: linear-gradient(var(--color-gradient-hero1), var(--color-gradient-hero2)), url('../assets/3.webp') center/cover no-repeat;
+  background: linear-gradient(var(--color-gradient-hero1), var(--color-gradient-hero2)), url('../assets/bg_exchange.png') center/cover no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -372,3 +372,87 @@ body {
 .btn-social.reddit:hover { background-color: #FF4500; color: white; }
 .btn-social.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: white; }
 .btn-social.tiktok:hover { background-color: #69C9D0; color: white; }
+
+/* Scoped overrides for bourse.html to avoid Tailwind collisions */
+.bourse-page {
+  background: var(--color-bg-main);
+  color: var(--color-text-light);
+  font-family: 'Roboto', sans-serif;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+/* replace common Tailwind utility classes used in bourse.html */
+.bourse-page .bg-white {
+  background: var(--color-bg-card) !important;
+  color: var(--color-text-light) !important;
+}
+.bourse-page .p-6 { padding: 1.5rem !important; }
+.bourse-page .rounded-2xl { border-radius: 1rem !important; }
+.bourse-page .shadow-lg { box-shadow: 0 12px 30px rgba(0,0,0,0.5) !important; }
+
+.bourse-page h1 {
+  color: var(--color-primary);
+  font-size: 2.25rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+/* Balance box (kept visually consistent with site) */
+.bourse-page #soldeContainer > div {
+  background: var(--color-bg-glass);
+  color: var(--color-primary);
+  padding: 0.6rem 1rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Faucet button uses existing .btn-primary; ensure spacing under balance */
+.bourse-page #faucetBtn { margin-top: 0.5rem; }
+
+/* Market & Inventory panels: replace Tailwind layout look with site cards */
+.bourse-page .bg-white > h2,
+.bourse-page .bg-white > h2 { color: var(--color-primary); }
+
+.bourse-page .market-card {
+  background: var(--color-bg-feature);
+  color: var(--color-text-light);
+  border-radius: 14px;
+  padding: 1.25rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.bourse-page .market-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,0,0,0.55); }
+
+/* Buttons: make sure .btn-secondary matches dialog look */
+.bourse-page .btn-secondary {
+  background: url('../assets/DialogBox.png') center center / 100% 100% no-repeat;
+  color: var(--color-text-white);
+  border: none;
+  border-radius: 12px;
+  background-color: transparent;
+  min-width: 140px;
+  min-height: 48px;
+  padding: 0.8rem 1.2rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: filter 0.18s, transform 0.18s;
+}
+
+/* small helper for inline pi icon formatting */
+.bourse-page .pi-icon { width: 1.2rem; height: 1.2rem; vertical-align: middle; margin-left: 0.3rem; }
+
+/* Responsive tweaks inside scoped page */
+@media (max-width: 768px) {
+  .bourse-page { padding: 1rem; }
+  .bourse-page h1 { font-size: 1.6rem; }
+}
+

@@ -22,13 +22,13 @@
   <link rel="stylesheet" href="css/scroll-banner.css" />
 </head>
 <body>
-
+<div id="scroll-banner-container"></div>
   <!-- HERO -->
   <section class="hero">
   <div class="hero-content">
     <img src="assets/LogoPi2.png" alt="Pi RPG Logo" class="hero-logo">
     <p>A pixel-art RPG where every choice matters. Explore, fight, and uncover the mysteries of a 16px world.</p>
-    <button class="btn-prototype" id="playBtn">Prototype</button>
+    <a class="btn-prototype" id="button" href="Game2/index.html" target="_blank" rel="noopener">Prototype</a>
   </div>
 </section>
 
@@ -91,22 +91,8 @@
 
   </section>
 
-<section class="learn-more-banner">
-  <div class="learn-banner-content">
-    <h2>Want to Dive Deeper?</h2>
-    <p>Explore hidden lore, behind-the-scenes secrets & exclusive updates!</p>
-  </div>
-  <button class="btn-primary" onclick="window.location.href='roadmap.html'">
-    Learn More →
-  </button>
-</section>
 
 
-  <!-- Game modal window -->
-  <div class="game-modal" id="gameModal">
-    <iframe src="Game2/index.html" allowfullscreen></iframe>
-    <button class="close-btn" id="closeBtn">Close</button>
-  </div>
 
   <script src="js/main.js"></script>
 
@@ -121,7 +107,6 @@
       })
       .catch(error => console.error('Error loading bestiary:', error));
   </script>
-<div id="scroll-banner-container"></div>
 <script src="js/scroll-banner.js"></script>
 
 </body>

@@ -1,31 +1,76 @@
-.scroll-banner {
-  position: fixed;
-  top: 0; /* collé en haut */
+.game-header {
+  position: fixed; /* force sticky behavior */
+  top: 0;
+  left: 0;
   width: 100%;
-  background: var(--color-bg-banner);
-  color: var(--color-primary); /* texte or chaud */
-  font-weight: bold;
-  font-family: 'Orbitron', sans-serif;
-  overflow: hidden;
-  cursor: pointer;
-  z-index: 9999;
-  padding: 0.8rem 0;
-  box-shadow: 0 2px 10px var(--color-shadow-glass);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--color-border-glass);
+  box-shadow: 0 4px 20px var(--color-shadow-glass);
+  z-index: 9999;
+  gap: 1rem;
+  color: var(--color-primary);
+  text-shadow: 0 0 6px var(--color-accent);
 }
 
-.scroll-content {
-  display: inline-block;
-  white-space: nowrap;
-  padding-left: 100%;
-  animation: scroll-text 15s linear infinite;
+/* Padding to prevent content hiding under fixed header */
+.main-content {
+  padding-top: 100px; /* header height */
 }
 
-@keyframes scroll-text {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-100%); }
+/* Logo + Title */
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.logo img {
+  height: 60px;
+  width: auto;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.logo img:hover { transform: scale(1.1) rotate(-5deg); }
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0;
+  color: var(--color-primary);
+  letter-spacing: 1px;
+  text-shadow: 0 0 2px var(--color-accent);
 }
 
-.scroll-banner:hover .scroll-content {
-  animation-play-state: paused;
+/* Menu buttons */
+.menu { display: flex; gap: 1rem; }
+.menu .btn-primary {
+  padding: 0.7em 1.8em;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: url('../assets/DialogBox.png') center/100% 100% no-repeat;
+  color: #ecba60;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.2s;
+}
+.menu .btn-primary:hover,
+.menu .btn-primary:focus {
+  filter: brightness(1.1) drop-shadow(0 0 8px var(--color-primary-light));
+  transform: scale(1.05);
+  outline: none;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .game-header { flex-direction: column; align-items: flex-start; padding: 1rem; }
+  .menu { width: 100%; justify-content: space-around; margin-top: 0.5rem; }
+  .menu .btn-primary { padding: 0.6em 1.2em; font-size: 0.9rem; }
 }
